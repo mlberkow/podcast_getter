@@ -16,6 +16,7 @@ class PodcastDownloader
 		@show_date = today.strftime("%m-%d-%y")
 		@download_date = today.strftime("%Y/%m/%Y%m%d")
 		@file_path = "/Users/annwatts/Documents/PodcastGetter/ATC"
+		# @file_path = "/Users/mberkow/Documents/Develop/podcast_getter/ATC"
 	end
 
 	def get_file_names
@@ -26,7 +27,6 @@ class PodcastDownloader
 		rows.each do |row|
 			files << row[/https(.*?)\.mp3/]
 		end
-
 		# Reject bumper music
 		files.reject! { |a| a =~ /atc_\d\dm\d.mp3/ }
 		files.uniq!
